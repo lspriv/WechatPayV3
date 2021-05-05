@@ -94,7 +94,7 @@ class Client {
 								   : $handler->withValidator(new Noop)->build();
 		$this->createStack();
 		$this->createClient();
-		if(!$hasWeChatCerts && $repeat) $this->downloadWeChatCerts();
+		if(!$hasWeChatCerts && $repeat) $this->downloadCerts();
 	}
 
 	/**
@@ -156,7 +156,7 @@ class Client {
 	 * @param string $appId 服务商应用ID
 	 * @return self
      */
-	public function setAppId ($appId) :self {
+	public function setApp ($appId) :self {
 		$this->spAppId = $appId;
 		return $this;
 	}
@@ -168,7 +168,7 @@ class Client {
 	 * @param string $subAppId 子商户应用ID
 	 * @return self
      */
-	public function setSubInfo ($subMchId, $subAppId = '') :self {
+	public function setSub ($subMchId, $subAppId = '') :self {
 		$this->subMchId = $subMchId;
 		$this->subAppId = $subAppId;
 		return $this;
@@ -186,7 +186,7 @@ class Client {
 	 * @return array jsApiParams JSAPI调起支付参数 ; prepay_id 订单详情扩展字符串
 	 * @throws WxPayException
      */
-	public function UnifiedOrder (array $base, array $amount, array $payer, array $detail = null, array $scene_info = null) :array {
+	public function unifiedOrder (array $base, array $amount, array $payer, array $detail = null, array $scene_info = null) :array {
 		$params = array_merge($base, array_filter(compact('amount', 'payer', 'detail', 'scene_info'), function($param) {
 			return !empty($param);
 		}), [
@@ -421,7 +421,7 @@ class Client {
 	 * @see wechatpay/wechatpay-guzzle-middleware/tool/CertificateDownloader.php => CertificateDownloader::downloadCert()
 	 * @throws WxPayException
      */
-	public function downloadWeChatCerts() :void {
+	public function downloadCerts() :void {
 		try {
             // 接下来，正常使用Guzzle发起API请求，WechatPayMiddleware会自动地处理签名和验签
             $resp = $this->client->request('GET', API::CertificatesDwonload, [
