@@ -1,4 +1,5 @@
 # WechatPayV3
+
  为微信支付v3接口中间件wechatpay-guzzle-middleware封装的服务商平台微信支付SDK
 
 >     · 自动下载和验证平台证书
@@ -25,8 +26,6 @@
 
 [**`WechatPayV3\Client::CERT_TRUST_CHAIN_PATH`**](#CERT_TRUST_CHAIN_PATH)  平台证书信任链本地保存路径
 
-
-
 ### 使用
 
 ```php
@@ -52,12 +51,12 @@ try {
 ### 方法
 > **`注意`** 所有的接口参数`$params`中的`sp_appid`，`sp_mchid`，`sub_appid`，`sub_mchid`无需再填写
 
-
-#### 统一下单 
+#### 统一下单
 
 ```php
     $wechatPay->unifiedOrder($params);
 ```
+
 > `$params`参数为微信支付v3 JsApi统一下单接口的参数，详情见 [微信支付v3统一下单](https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter4_1_1.shtml)
 
 #### 微信支付订单号查询
@@ -86,6 +85,7 @@ try {
 ```php
     $wechatPay->refund($params); 
 ```
+
 > `$params`参数为微信支付v3 JsApi申请退款接口的参数，详情见 [微信支付v3申请退款](https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter4_1_9.shtml)
 
 #### 查询单笔退款
@@ -100,6 +100,7 @@ try {
 ```php
     $wechatPay->tradeBill($params); 
 ```
+
 > `$params`参数为微信支付v3 JsApi申请交易账单接口的参数，详情见 [微信支付v3申请交易账单](https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter4_1_6.shtml)
 
 #### 申请资金账单
@@ -107,6 +108,7 @@ try {
 ```php
     $wechatPay->fundFlowBill($params); 
 ```
+
 > `$params`参数为微信支付v3 JsApi申请资金账单接口的参数，详情见 [微信支付v3申请资金账单](https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter4_1_7.shtml)
 
 #### 下载平台证书
@@ -114,6 +116,7 @@ try {
 ```php
     $wechatPay->downloadCerts(); 
 ```
+
 > **`注意`** 下载平台证书会清空 `WechatPayV3\Client::CERT_FILE_PATH` 下的所有扩展名为 `WechatPayV3\Client::CERT_EXTENSION` 的平台证书，请务必将平台证书放到单独的文件夹下或另起扩展名称（修改`WechatPayV3\Client::CERT_EXTENSION`值即可）
 
 #### 上传媒体文件
@@ -125,7 +128,6 @@ try {
     $url = 'https://api.mch.weixin.qq.com/v3/[merchant/media/video_upload|marketing/favor/media/image-upload]'; 
     $wechatPay->upload($path, $url); 
 ```
-
 
 ### 微信支付异步通知
 
@@ -152,6 +154,7 @@ function receive () {
     }
 }
 ```
+
 ### 关于
 
 >     有任何问题或是需求请到 `Issues` 面板提交
