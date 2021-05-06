@@ -17,13 +17,13 @@
 
 ### 配置
 
-[**`WechatPayV3\Client::KEY_FILE_PATH`**](#bindviewchange)  私钥本地路径
+[**`WechatPayV3\Client::KEY_FILE_PATH`**](#KEY_FILE_PATH)  私钥本地路径
 
-[**`WechatPayV3\Client::CERT_FILE_PATH`**](#bindviewchange)  平台证书本地保存目录
+[**`WechatPayV3\Client::CERT_FILE_PATH`**](#CERT_FILE_PATH)  平台证书本地保存目录
 
-[**`WechatPayV3\Client::CERT_EXTENSION`**](#bindviewchange)  平台证书扩展名
+[**`WechatPayV3\Client::CERT_EXTENSION`**](#CERT_EXTENSION)  平台证书扩展名
 
-[**`WechatPayV3\Client::CERT_TRUST_CHAIN_PATH`**](#bindviewchange)  平台证书信任链本地保存路径
+[**`WechatPayV3\Client::CERT_TRUST_CHAIN_PATH`**](#CERT_TRUST_CHAIN_PATH)  平台证书信任链本地保存路径
 
 
 
@@ -50,7 +50,7 @@ try {
 ```
 
 ### 方法
-> **`注意`** 小程序和jsapi支付通用
+> **`注意`** 所有的接口参数`$params`中的`sp_appid`，`sp_mchid`，`sub_appid`，`sub_mchid`无需再填写
 
 
 #### 统一下单 
