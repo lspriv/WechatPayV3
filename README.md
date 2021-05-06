@@ -125,7 +125,6 @@ try {
     $url = 'https://api.mch.weixin.qq.com/v3/[merchant/media/video_upload|marketing/favor/media/image-upload]'; 
     $wechatPay->upload($path, $url); 
 ```
-> **`注意`** 下载平台证书会清空 `WechatPayV3\Client::CERT_FILE_PATH` 下的所有扩展名为 `WechatPayV3\Client::CERT_EXTENSION` 的平台证书，请务必将平台证书放到单独的文件夹下或另起扩展名称（修改`WechatPayV3\Client::CERT_EXTENSION`值即可）
 
 
 ### 微信支付异步通知
