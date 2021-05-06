@@ -135,7 +135,7 @@ try {
 use WechatPayV3\Client as WechatPay;
 use WechatPayV3\WxPayException;
 
-//接收通知的接口
+// 接收通知的接口
 function receive () {
     // API V3 Key
     $merchantKey = 'xxxxxxxx'; 
@@ -149,7 +149,7 @@ function receive () {
             $handler->fail('oprate fail');
         });
     } catch (WxPayException $e) {
-        //处理错误
+        // 错误处理
     }
 }
 ```
